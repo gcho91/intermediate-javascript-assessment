@@ -15,6 +15,17 @@
 // CODE HERE...
 
 
+function callBinding(magicAnimals, updateAnimal, id) {
+	// for(var i=0; i<magicAnimals.length; i++) {
+	// 	if (magicAnimals[i] == id) {
+	// 		updateAnimal.call(magicAnimals[i], "Trogdor");
+	// 	}
+	// }
+	// return magicAnimals;
+	return updateAnimal.call(magicAnimals.filter(animal => animal === id)[0], "Trogdor");
+}
+
+
 
 // *************
 // * PROBLEM 2 *
@@ -29,6 +40,10 @@
 
 // CODE HERE...
 
+function applyBinding(magicAnimals, updateAnimal, id){
+  return updateAnimal.apply(magicAnimals.filter(animal => animal.id === id)[0], ["being majestic", "eating rainbows"]);
+
+}
 
 
 // *************
@@ -47,7 +62,15 @@
 
 var foo;
 
-// CODE HERE...
+// // CODE HERE...
+function promiseMe($q){
+var defer = $q.defer();
+setTimeout(function(){
+  defer.resolve(foo=bar);
+}, 20)
+return defer.promise;
+}
+
 
 
 
